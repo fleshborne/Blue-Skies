@@ -327,7 +327,6 @@ function initMap() {
         //   console.log(marker.code);
         });
       });
-    
 }
 
 
