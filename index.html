@@ -4,6 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 500px;
+        width: 60%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
+
   </head>
-  <body></body>
+  <body>
+
+    <div id="map"></div>
+
+
+
+
+
+
+    <!-- the map link -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZTHIIK47ROuZZ4h_93vyG9eXkXokut1s&callback=initMap"
+      async
+      defer
+    ></script>
+
+    <!-- the jquery link -->
+    <script
+      src="http://code.jquery.com/jquery-3.5.0.min.js"
+      integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+      crossorigin="anonymous"
+    ></script>
+    <!-- the park library link -->
+    <script src="Assets/JS/parks-lib.js"></script>
+    <!-- the javascript file -->
+    <script src="Assets/JS/script.js"></script>
+   
+    
+    
+  </body>
 </html>
