@@ -1,16 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="css/materialize.min.css"
+      media="screen,projection"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="Assets\CSS\styles.css" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD
     <title>Document</title>
     <link rel="stylesheet" href="Assets\CSS\styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/1.3.2/css/weather-icons.min.css"
     />
+=======
+>>>>>>> ec80e7f82e5c00d9bc9c123a40ca812d4c07e8d5
   </head>
+
   <body>
+    <!---Nav BAR with Favorites Tab We can add icons/logos etc-->
+    <nav>
+      <div class="nav-wrapper #90caf9 blue lighten-3">
+        <a href="index.html" class="brand-logo"
+          ><img src="Assets/Images/blueskieslogo.png" width="65" height="auto"
+        /></a>
+        <ul class="right hide-on-med-and-down">
+          <li></li>
+          <li>
+            <a href="favorites.html"
+              ><i class="material-icons right">tag_faces</i>Favorites</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!--main section of website with maps on left and weather on right -->
+    <div class="container">
+      <div class="row">
+        <div class="col s8">
+          <div class="card">
+            <div class="card-image">
+              <img
+                class="responsive-img"
+                src="https://media.mehrnews.com/d/2019/11/17/3/3297336.jpg"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="col s4">
+          <div class="card">
+            <div class="card-image">
+              <img src="Assets/Images/weatherSample.png" />
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>
+                I am a very simple card. I am good at containing small bits of
+                information. I am convenient because I require little markup to
+                use effectively.
+              </p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!---Bottom card with Park info, should populate once Marker is clicked-->
+      <div class="col s12 m7">
+        <div class="card horizontal">
+          <div class="card-image">
+            <img
+              src="https://www.nationalparkreservations.com/wp-content/uploads/2013/11/bigstock-Picturesque-Acadia-National-Pa-49009745-300x192.jpg"
+            />
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <h5 id="park-name">Acadia National Park</h5>
+
+              <!--this button Action: adds to Favorite list on Favorites.html page-->
+              <a class="btn-floating halfway-fab waves-effect waves-light red"
+                ><i class="material-icons">add</i></a
+              >
+              <p id="park-details">
+                Acadia National Park is a 47,000-acre Atlantic coast recreation
+                area primarily on Maine's Mount Desert Island. Its landscape is
+                marked by woodland, rocky beaches and glacier-scoured granite
+                peaks such as Cadillac Mountain, the highest point on the United
+                States’ East Coast. Among the wildlife are moose, bear, whales
+                and seabirds. The bayside town of Bar Harbor, with restaurants
+                and shops, is a popular gateway.
+              </p>
+            </div>
+            <div class="card-action">
+              <!--need IDs created if we want to have these pull from object info-->
+              <a href="#">Visit Park Website</a>
+              <a href="#">Get Directions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="component__weather-box">
       <div class="component__weather-content">
         <div class="weather-content__overview"></div>
@@ -24,6 +136,9 @@
       async
       defer
     ></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
@@ -31,7 +146,7 @@
     ></script>
     <script src="Assets/JS/parks-lib.js"></script>
     <script src="Assets/JS/script.js"></script>
-    <script src="Assets/JS/weatherScript"></script>
+    <script src="Assets/JS/weatherScript.js"></script>
     <!--<link rel="stylesheet" href="Assets\CSS\styles.css" />
   </head>
   <body>
