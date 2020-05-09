@@ -128,4 +128,15 @@ h1 {
 
 small {
   font-size: 12px;
+
+#map {
+  height: 500px;
+  width: 60%;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
