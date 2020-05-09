@@ -1,0 +1,73 @@
+{
+    "name": "wwo-api-with-node",
+    "version": "1.0.0",
+    "description": "WWO Homepage weather widget",
+    "dependencies": {
+      "express": "4.8.x",
+      "request": "^2.53.0"
+    },
+    "private": true,
+    "license": "MIT"
+  }
+  // app.js
+var express = require('express');
+var app = express();
+var request = require('request');
+var apiKey = '04d251f7a68951ba6a40a5fbd342d';
+var requestUrl = 'https://api.worldweatheronline.com/premium/v1/weather.ashx?q=liverpool+uk&num_of_days=5&tp=24&format=json&key=' apiKey;
+
+app.use("/icons", express.static(__dirname + "/icons/world-weather-online-set/PNGs_64x64/day"));
+app.use("/", express.static(__dirname));
+
+function dayOfWeekAsString(dayIndex) {
+    return ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][dayIndex];
+}
+
+app.get('/', function (req, res) {
+   res.end("Hello World!");
+});
+
+var server = app.listen(3000, function () {
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log('Your app listening at https://%s:%s', host, port);
+});
+app.get('/', function (req, res) {
+    var html = "<link href='https://jmtfq3yszfe3sxruh21qbikk-wpengine.netdna-ssl.com/main.css' rel='stylesheet' type='text/css'/>";
+    request(requestUrl, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+
+        // parse the json result
+        var result = JSON.parse(body);
+        var currentWeather = result.data.current_condition;
+        var weeklyWeather = result.data.weather;
+
+        html += '<div class="weather-widget">';
+
+        html += createCurrentWeatherHTML(currentWeather, result.data.request[0].query);
+
+        weeklyWeather.forEach(function(day) {
+            html += createDaySummaryHTML(day);
+        });
+
+        html += '</div>';
+
+        res.send(html);
+
+    } else {
+        console.log(error, response.statusCode, body);
+    }
+    res.end("");
+});
+});
+var createDaySummaryHTML = function(daysWeather) {
+    var imgSrc = "/icons/" + daysWeather.hourly[0].weatherCode + '.png';
+    var html = '<div class="col">';
+    html += '<div class="day">' + dayOfWeekAsString(new Date(daysWeather.date).getDay())+ '</div>';
+    html += '<div class="icon"><img src="' + imgSrc + '" alt="" /></div>';
+    html += '<div class="celsius">' + daysWeather.maxtempC + 'Â°C | ' + daysWeather.mintempC + 'Â°C</div>';
+    html += '<div class="farenheit">' + daysWeather.maxtempF + 'Â°F | ' + daysWeather.mintempF + 'Â°F</div>';
+    html += "</div>";
+
+    return html;
+};
