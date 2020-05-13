@@ -74,7 +74,7 @@ function applyIcon(icon) {
 renderData = (location, forecast) => {
   // render city, current weather description and temp
   const currentWeather = forecast[0].weather[0];
-  const widgetHeader = `<h1>${location.name}</h1><small>${currentWeather.description}</small>`;
+  const widgetHeader = `<h1>${location.name}</h1>`;
   console.log(forecast[0].temp.day);
   CURRENT_TEMP.innerHTML = `<i class="wi ${applyIcon(
     currentWeather.icon
