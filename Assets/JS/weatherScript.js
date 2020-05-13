@@ -6,11 +6,12 @@ const CURRENT_TEMP = document.getElementsByClassName(
 )[0];
 const FORECAST = document.getElementsByClassName("component__forecast-box")[0];
 
-const appid = "e43f64ee98be9268f7a7f49e34aecfdf"; // use your own API KEY plz
+const appid = "e43f64ee98be9268f7a7f49e34aecfdf";
 
 // Use Fetch API to GET data from OpenWeather API
 function getWeatherData(position) {
   const headers = new Headers();
+  // const position = $("coords");
   const URL = `https://api.openweathermap.org/data/2.5/forecast/daily?${position}&cnt=7&units=imperial&APPID=${appid}`;
 
   return fetch(URL, {
@@ -101,20 +102,24 @@ renderData = (location, forecast) => {
 // TUTORIAL reader: I moved the calling of the weather API url
 // to be able to get the current browser location
 // NOTE: check https://github.com/mdn/sprints/issues/1032#issuecomment-517447453 if you're having issues with geolocation
-if ("geolocation" in navigator) {
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      const coordinates = `lat=${position.coords.latitude}&lon=${position.coords.longitude}`;
-      // run/render the widget data
-      getWeatherData(coordinates).then((weatherData) => {
-        const city = weatherData.city;
-        const dailyForecast = weatherData.list;
 
-        renderData(city, dailyForecast);
-      });
-    },
-    (e) => console.log(e)
-  );
-} else {
-  console.log("unable to retrieve location from browser");
+function getMarkerPosition(lat, lng) {
+  console.log(lat, lng);
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const coordinates = `lat=${lat}&lon=${lng}`;
+        // run/render the widget data
+        getWeatherData(coordinates).then((weatherData) => {
+          const city = weatherData.city;
+          const dailyForecast = weatherData.list;
+          console.log(navigator);
+          renderData(city, dailyForecast);
+        });
+      },
+      (e) => console.log(e)
+    );
+  } else {
+    console.log("unable to retrieve location from browser");
+  }
 }
