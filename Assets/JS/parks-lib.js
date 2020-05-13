@@ -516,9 +516,10 @@ function initMap() {
   });
   allParks.forEach(function (park) {
     var marker = new google.maps.Marker({
-      position: { 
-        lat: park.lat, 
-        lng: park.lng },
+      position: {
+        lat: park.lat,
+        lng: park.lng,
+      },
       map: map,
       code: park.code,
       name: park.name,
@@ -546,7 +547,7 @@ function initMap() {
       });
       
       getCoordinates(e);
-     
+      getMarkerPosition(e.latLng.lat(), e.latLng.lng());
     });
     //adding hovering tooltip:
     // marker.addListener("hover", function (e) {
