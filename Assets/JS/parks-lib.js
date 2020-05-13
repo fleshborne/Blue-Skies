@@ -499,6 +499,10 @@ var allParks = [
 
 var allMyFavParks = [];
 
+var parkImgElement = $("#parkImg");
+var parkNameElement = $("#park-name");
+var parkInfoElement = $("#park-details");
+
 var currentPark = {
   name: "",
   code: "",
@@ -538,8 +542,16 @@ function initMap() {
         url: url,
         method: "GET",
       }).then(function (response) {
-        //change the HTML:
         var info = response.data[0];
+        console.log(response);
+        //change the HTML:
+        parkImgElement.attr("src", info.images[0].url);
+        parkNameElement.text(info.fullName);
+        parkInfoElement.text(info.description);
+        
+        
+
+        
         console.log(info.fullName);
         // currentPark.name = 
 
