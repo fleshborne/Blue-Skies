@@ -1,8 +1,16 @@
 body {
-  background: #dce2e5;
+  background-color: rgb(134, 180, 224);
   font-family: "Roboto", sans-serif;
   font-weight: 100;
   font-size: 11px;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: rgb(134, 180, 224);
+  text-shadow: 10px;
 }
 
 .component__weather-box {
