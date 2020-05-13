@@ -1,11 +1,12 @@
-# Project1
+# Project Blue Skies
 
-(name to be determined)
 Like to camp?
 Ever wanted to find a new hiking hotspot?
 Maybe a good place to fish?
 Even just the weather for a nice walk with the dog!
 Search with us
+
+[Github Repo](https://fleshborne.github.io/Project1/)
 
 # Usage
 
