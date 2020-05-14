@@ -66,12 +66,12 @@ function applyIcon(icon) {
 }
 
 // Use returned json from promise to render daily forecast
-renderData = (location, forecast) => {
+renderData = (park, forecast) => {
   // render city, current weather description and temp
   var forecastEl = $(".component__forecast-box");
   forecastEl.empty();
   const currentWeather = forecast[0].weather[0];
-  const widgetHeader = `<h1>${location.name}</h1>`;
+  const widgetHeader = `<h1>${park.name}</h1>`;
   console.log(forecast[0].temp.day);
   CURRENT_TEMP.innerHTML = `<i class="wi ${applyIcon(
     currentWeather.icon
@@ -93,6 +93,7 @@ renderData = (location, forecast) => {
       day.temp.day
     )}<i class="wi wi-degrees"></i></span></div>`;
     FORECAST.appendChild(dayBlock);
+    allParks;
   });
 };
 
