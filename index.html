@@ -78,15 +78,16 @@
       <!---Bottom card with Park info, should populate once Marker is clicked-->
       <div class="col s12 m7">
         <div class="card horizontal">
+
+          
+
           <div class="card-image">
-            <img id="parkImg"
-              src="https://www.nationalparkreservations.com/wp-content/uploads/2013/11/bigstock-Picturesque-Acadia-National-Pa-49009745-300x192.jpg"
-            />
+            <img id="parkImg" class="materialboxed" width="650" src="https://www.nationalparkreservations.com/wp-content/uploads/2013/11/bigstock-Picturesque-Acadia-National-Pa-49009745-300x192.jpg">
           </div>
           <div class="card-stacked">
             <div class="card-content">
               <h5 id="park-name">Acadia National Park</h5>
-
+              <p id="park-fee"></p>
               <!--this button Action: adds to Favorite list on Favorites.html page-->
               <a class="btn-floating halfway-fab waves-effect waves-light red"
                 ><i class="material-icons">add</i></a
@@ -103,7 +104,7 @@
             </div>
             <div class="card-action">
               <!--need IDs created if we want to have these pull from object info-->
-              <a href="#">Visit Park Website</a>
+              <a id="park-page" href="">Visit Park Website</a>
               <a href="#">Get Directions</a>
             </div>
           </div>
