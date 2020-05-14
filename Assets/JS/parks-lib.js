@@ -510,6 +510,7 @@ var parkNameElement = $("#park-name");
 var parkInfoElement = $("#park-details");
 var parkFee = $("#park-fee");
 var parkPage = $("#park-page");
+var bgImgElement = $("#bgImg");
 
 var currentPark = {
   name: "",
@@ -517,7 +518,6 @@ var currentPark = {
   img: "",
 };
 
-//HTML ELEMENTS:
 
 function initMap() {
   var usa = { lat: 40.045835, lng: -96.428127 };
@@ -533,13 +533,11 @@ function initMap() {
       },
       map: map,
       code: park.code,
-      name: park.name,
+      title: park.name,
     });
+    
     marker.addListener("click", function (e) {
-      // console.log(e.latLng.lat());
-      // console.log(e.latLng.lng());
-
-      console.log(marker.code);
+     
 
       // Getting Parks Info:
       var key = "yPBjpfToto0wPE3XwW0c4EE6fJfWiaDlziYX82jM";
@@ -555,6 +553,7 @@ function initMap() {
         // parkImgOne.attr("src", info.images[0].url);
         // parkImgTwo.attr("src", info.images[2].url);
         // parkImgThree.attr("src", info.images[3].url);
+
         // enlarge img on click
         $(document).ready(function(){
           $('.materialboxed').materialbox();
@@ -564,26 +563,10 @@ function initMap() {
         parkNameElement.text(info.fullName);
         parkInfoElement.text(info.description);
         parkFee.text(
-          "Cost: $" + Math.round(info.entranceFees[0].cost) //+
-          // " ( " + info.entranceFees[0].description + " )"
-        );
+          "Cost: $" + Math.round(info.entranceFees[0].cost));
         parkPage.attr("href", info.url);
-        console.log(info.fullName);
-        // currentPark.name =
+        bgImgElement.attr("src", info.images[1].url);
       });
-
-      // Getting birds info:
-      // var birdKey = "cgimsp2416fi";
-      // var birdUrl = `https://api.ebird.org/v2/data/obs/geo/recent?&api_key=${birdKey}&lat=61&lng=-142`;
-
-      // $.ajax({
-      //   url: birdUrl,
-      //   method: "GET",
-      // }).then(function (response) {
-      //   console.log(response);
-      //change the HTML:
-      // });
-
       getCoordinates(e);
       getMarkerPosition(e.latLng.lat(), e.latLng.lng());
     });
