@@ -7,10 +7,10 @@ body {
 
 #bgImg {
   pointer-events: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .p1 {
@@ -26,13 +26,12 @@ body {
   font-size: 18px;
   font-weight: 400;
   background-color: rgb(207, 219, 245);
-
 }
 
 .component__weather-box {
   margin: 30px auto;
   width: 420px;
-  border: 1px solid black
+  border: 1px solid black;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 2px 5px 20px 1px #444;
