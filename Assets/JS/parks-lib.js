@@ -498,11 +498,18 @@ var allParks = [
 ];
 
 var allMyFavParks = [];
-
+$('.carousel.carousel-slider').carousel({
+  fullWidth: true
+});
+      
+// var parkImgOne = $("#img-one");
+// var parkImgTwo = $("#img-two");
+// var parkImgThree = $("#img-three");
 var parkImgElement = $("#parkImg");
 var parkNameElement = $("#park-name");
 var parkInfoElement = $("#park-details");
-var bgImgElement = $("#bgImg");
+var parkFee = $("#park-fee");
+var parkPage = $("#park-page");
 
 var currentPark = {
   name: "",
@@ -542,17 +549,40 @@ function initMap() {
         url: url,
         method: "GET",
       }).then(function (response) {
-        var info = response.data[0];
         console.log(response);
+        var info = response.data[0];
         //change the HTML:
+        // parkImgOne.attr("src", info.images[0].url);
+        // parkImgTwo.attr("src", info.images[2].url);
+        // parkImgThree.attr("src", info.images[3].url);
+        // enlarge img on click
+        $(document).ready(function(){
+          $('.materialboxed').materialbox();
+        });
         parkImgElement.attr("src", info.images[0].url);
+        
         parkNameElement.text(info.fullName);
         parkInfoElement.text(info.description);
-        bgImgElement.attr("src", info.images[1].url);
-
+        parkFee.text(
+          "Cost: $" + Math.round(info.entranceFees[0].cost) //+
+          // " ( " + info.entranceFees[0].description + " )"
+        );
+        parkPage.attr("href", info.url);
         console.log(info.fullName);
         // currentPark.name =
       });
+
+      // Getting birds info:
+      // var birdKey = "cgimsp2416fi";
+      // var birdUrl = `https://api.ebird.org/v2/data/obs/geo/recent?&api_key=${birdKey}&lat=61&lng=-142`;
+
+      // $.ajax({
+      //   url: birdUrl,
+      //   method: "GET",
+      // }).then(function (response) {
+      //   console.log(response);
+      //change the HTML:
+      // });
 
       getCoordinates(e);
       getMarkerPosition(e.latLng.lat(), e.latLng.lng());
