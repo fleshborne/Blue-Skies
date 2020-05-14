@@ -502,15 +502,15 @@ var allMyFavParks = [];
 var parkImgElement = $("#parkImg");
 var parkNameElement = $("#park-name");
 var parkInfoElement = $("#park-details");
+var bgImgElement = $("#bgImg");
 
 var currentPark = {
   name: "",
   code: "",
-  img: ""
-}
+  img: "",
+};
 
 //HTML ELEMENTS:
-
 
 function initMap() {
   var usa = { lat: 40.045835, lng: -96.428127 };
@@ -531,12 +531,12 @@ function initMap() {
     marker.addListener("click", function (e) {
       // console.log(e.latLng.lat());
       // console.log(e.latLng.lng());
-     
+
       console.log(marker.code);
-   
+
       // Getting Parks Info:
-      var key = "yPBjpfToto0wPE3XwW0c4EE6fJfWiaDlziYX82jM"
-      var url = `https://developer.nps.gov/api/v1/parks?parkCode=${marker.code}&api_key=${key}`
+      var key = "yPBjpfToto0wPE3XwW0c4EE6fJfWiaDlziYX82jM";
+      var url = `https://developer.nps.gov/api/v1/parks?parkCode=${marker.code}&api_key=${key}`;
 
       $.ajax({
         url: url,
@@ -548,16 +548,12 @@ function initMap() {
         parkImgElement.attr("src", info.images[0].url);
         parkNameElement.text(info.fullName);
         parkInfoElement.text(info.description);
-        
-        
+        bgImgElement.attr("src", info.images[1].url);
 
-        
         console.log(info.fullName);
-        // currentPark.name = 
-
-
+        // currentPark.name =
       });
-      
+
       getCoordinates(e);
       getMarkerPosition(e.latLng.lat(), e.latLng.lng());
     });
