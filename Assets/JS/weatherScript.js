@@ -1,12 +1,10 @@
-const CURRENT_LOCATION = document.getElementsByClassName(
+var CURRENT_LOCATION = document.getElementsByClassName(
   "weather-content__overview"
 )[0];
-const CURRENT_TEMP = document.getElementsByClassName(
-  "weather-content__temp"
-)[0];
-const FORECAST = document.getElementsByClassName("component__forecast-box")[0];
+var CURRENT_TEMP = document.getElementsByClassName("weather-content__temp")[0];
+var FORECAST = document.getElementsByClassName("component__forecast-box")[0];
 
-const appid = "e43f64ee98be9268f7a7f49e34aecfdf";
+var appid = "e43f64ee98be9268f7a7f49e34aecfdf";
 //  Cited: https://codepen.io/sceendy/pen/zGmxZz?editors=1010
 // Use Fetch API to GET data from OpenWeather API
 function getWeatherData(position) {
@@ -101,7 +99,7 @@ function getMarkerPosition(lat, lng) {
   console.log(lat, lng);
   if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(
-      (position) => {
+      () => {
         const coordinates = `lat=${lat}&lon=${lng}`;
         // run/render the widget data
         getWeatherData(coordinates).then((weatherData) => {
