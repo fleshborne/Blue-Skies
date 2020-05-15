@@ -510,6 +510,10 @@ var parkFee = $("#park-fee");
 var parkPage = $("#park-page");
 var bgImgElement = $("#bgImg");
 
+var currentParkArray = [];
+
+//HTML ELEMENTS:
+
 var currentPark = {
   name: "",
   code: "",
@@ -585,10 +589,19 @@ function initMap() {
           parkPage.attr("href", info.url);
           bgImgElement.attr("src", info.images[1].url);
         });
+
+     
         getMarkerPosition(e.latLng.lat(), e.latLng.lng());
       }
     });
+       
+
+    
+   
   });
+
+
+
 }
 
 $("#fav-button").on("click", function () {
@@ -598,13 +611,11 @@ $("#fav-button").on("click", function () {
   var currentParkArrayJSON = JSON.stringify(currentParkArray);
   localStorage.setItem("currentPark-json", currentParkArrayJSON);
 });
+
 //clicked plus button
 //push currentPark into an Array of favorites
 //setItem favorites to local storage
+
 //get array of objects from local storage
 //for each loop of objects to dynamically create cards
 // });
-
-
-
-

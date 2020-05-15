@@ -43,17 +43,18 @@
     </nav>
 
       <div class="container">
+      <!-- <div class="col s12 m7">
               <div class="col s12 m7">
         <div class="card horizontal">
           <div class="card-image">
             <img
               src="https://www.nationalparkreservations.com/wp-content/uploads/2013/11/bigstock-Picturesque-Acadia-National-Pa-49009745-300x192.jpg"
-            />
+            id="parkImg-fav"/>
           </div>
           <div class="card-stacked">
             <div class="card-content">
-              <h5 id="park-name">Acadia National Park</h5>
-              <p id="park-details">
+              <h5 id="park-name-fav">Acadia National Park</h5>
+              <p id="park-details-fav">
                 Acadia National Park is a 47,000-acre Atlantic coast recreation
                 area primarily on Maine's Mount Desert Island. Its landscape is
                 marked by woodland, rocky beaches and glacier-scoured granite
@@ -69,35 +70,7 @@
 
             </div>
           </div>
-        </div>
-      </div>
-      <div class="col s12 m7">
-        <div class="card horizontal">
-          <div class="card-image" id="park-image">
-            <img
-              src="https://www.nationalparkreservations.com/wp-content/uploads/2013/11/bigstock-Picturesque-Acadia-National-Pa-49009745-300x192.jpg"
-            />
-          </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <h5 id="park-name">Acadia National Park</h5>
-              <p id="park-details">
-                Acadia National Park is a 47,000-acre Atlantic coast recreation
-                area primarily on Maine's Mount Desert Island. Its landscape is
-                marked by woodland, rocky beaches and glacier-scoured granite
-                peaks such as Cadillac Mountain, the highest point on the United
-                States’ East Coast. Among the wildlife are moose, bear, whales
-                and seabirds. The bayside town of Bar Harbor, with restaurants
-                and shops, is a popular gateway.
-              </p>
-            </div>
-            <div class="card-action">
-              <a href="#">Visit Park Website</a>
-              <a href="#">Get Directions</a>
-
-            </div>
-          </div>
-        </div>
+        </div> -->
       </div>
 
     </div>
@@ -110,6 +83,45 @@
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous"
   ></script>
+<script>
+
+var favorites = []
+
+var mainDiv = $("<div>");
+  mainDiv.addClass("col s12 m7");
+var mainCard = $("<div>");
+  mainCard.addClass("card horizontal");
+var imageDiv = $("<div>");
+  imageDiv.addClass("card-image");
+var image = $("<img>")
+  image.attr("id", "parkImg-fav");
+var rightMainDiv = $("<div>");
+  rightMainDiv.addClass("card-stacked");
+var rightMainDivContent = $("<div>");
+  rightMainDivContent.addClass("card-content");
+var nameHeader = $("<h5>");
+  nameHeader.attr("id", "park-name-fav");
+var pDetails = $("<p>");
+  pDetails.attr("id", "park-details-fav");
+
+  rightMainDivContent.append(nameHeader, pDetails);
+  rightMainDiv.append(rightMainDivContent);
+  imageDiv.append(image);
+  mainCard.append(imageDiv, rightMainDiv);
+  mainDiv.append(mainCard);
+  $(".container").append(mainDiv);
+
+
+var parkObject = JSON.parse(localStorage.getItem("currentPark-json"));
+image.attr("src", parkObject.img);
+nameHeader.text(parkObject.name);
+pDetails.text(parkObject.info);
+
+console.log(parkObject.img);
+
+
+
+</script>
 
   </body>
 </html>
