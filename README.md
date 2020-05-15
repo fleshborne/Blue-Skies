@@ -36,7 +36,7 @@ Share the results?
 
 # Visuals
 
-![Demogif](Assets\Images\2020-05-14_20-20-19.gif)
+![Demogif](https://github.com/fleshborne/Project1/blob/master/Assets/Images/2020-05-14_20-20-19.gif)
 
 # Contributors
 
