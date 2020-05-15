@@ -623,6 +623,9 @@ function initMap() {
     center: usa,
     zoom: 4,
   });
+  
+
+
   allParks.forEach(function (park) {
     var marker = new google.maps.Marker({
       position: {
@@ -633,6 +636,8 @@ function initMap() {
       code: park.code,
       title: park.name,
     });
+
+
     marker.addListener("click", function (e) {
       console.log(marker.title);
       //****MISSING PARKS*****//
