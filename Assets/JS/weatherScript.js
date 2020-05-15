@@ -75,7 +75,7 @@ renderData = (location, forecast) => {
   // render city, current weather description and temp
   const currentWeather = forecast[0].weather[0];
   const widgetHeader = `<h1>${location.name}</h1>`;
-  console.log(forecast[0].temp.day);
+  // console.log(forecast[0].temp.day);
   CURRENT_TEMP.innerHTML = `<i class="wi ${applyIcon(
     currentWeather.icon
   )}"></i> ${Math.round(forecast[0].temp.day)} <i class="wi wi-degrees"></i>`;
@@ -87,7 +87,7 @@ renderData = (location, forecast) => {
     let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
     let name = days[date.getDay()];
     let dayBlock = document.createElement("div");
-    console.log(day);
+    // console.log(day);
     dayBlock.className = "forecast__item";
     dayBlock.innerHTML = `<div class="forecast-item__heading">${name}</div>
       <div class="forecast-item__info"><i class="wi ${applyIcon(

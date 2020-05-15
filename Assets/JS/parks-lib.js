@@ -1,3 +1,4 @@
+// $(document).ready(function () {
 var acadia = {
   lat: 44.35,
   lng: -68.21,
@@ -497,13 +498,12 @@ var allParks = [
   zion,
 ];
 
-var allMyFavParks = [];
-
 var parkImgElement = $("#parkImg");
 var parkNameElement = $("#park-name");
 var parkInfoElement = $("#park-details");
 
 var currentPark = {};
+var currentParkArray = [];
 
 //HTML ELEMENTS:
 
@@ -547,19 +547,26 @@ function initMap() {
         currentPark["name"] = info.fullName;
         currentPark["img"] = info.images[0].url;
         currentPark["info"] = info.description;
-
-        console.log(currentPark);
-        var currentParkJSON = JSON.stringify(currentPark);
-        localStorage.setItem("currentPark-json", currentParkJSON);
       });
 
       getCoordinates(e);
       getMarkerPosition(e.latLng.lat(), e.latLng.lng());
     });
-    //adding hovering tooltip:
-    // marker.addListener("hover", function (e) {
-    //   M.Tooltip.init(e, position, "top");
-    // });
   });
 }
-console.log(currentPark);
+
+$("#fav-button").on("click", function () {
+  alert("clicked fav button");
+  //workaround for reference issue
+  currentParkArray.push(JSON.parse(JSON.stringify(currentPark)));
+  var currentParkArrayJSON = JSON.stringify(currentParkArray);
+  localStorage.setItem("currentPark-json", currentParkArrayJSON);
+});
+
+//clicked plus button
+//push currentPark into an Array of favorites
+//setItem favorites to local storage
+
+//get array of objects from local storage
+//for each loop of objects to dynamically create cards
+// });
