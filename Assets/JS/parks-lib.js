@@ -685,11 +685,18 @@ function initMap() {
           bgImgElement.attr("src", info.images[1].url);
         });
 
+     
         getMarkerPosition(e.latLng.lat(), e.latLng.lng());
       }
     });
+       
+
+    
+   
   });
-  // getMarkerPosition(e.latLng.lat(), e.latLng.lng());
+
+
+
 }
 $("#fav-button").on("click", function () {
   alert("clicked fav button");
