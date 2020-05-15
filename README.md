@@ -36,7 +36,7 @@ Share the results?
 
 # Visuals
 
-![Demo gif](Assets\Images\2020-05-14_20-20-19.gif)
+![Demogif](Assets\Images\2020-05-14_20-20-19.gif)
 
 # Contributors
 
