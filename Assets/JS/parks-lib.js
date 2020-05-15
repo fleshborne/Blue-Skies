@@ -510,6 +510,10 @@ var parkFee = $("#park-fee");
 var parkPage = $("#park-page");
 var bgImgElement = $("#bgImg");
 
+var currentParkArray = [];
+
+//HTML ELEMENTS:
+
 var currentPark = {
   name: "",
   code: "",
@@ -585,9 +589,60 @@ function initMap() {
           parkPage.attr("href", info.url);
           bgImgElement.attr("src", info.images[1].url);
         });
+
         // getCoordinates(e);  USE IF YOU NEED ACCESS THE SCRIPT.JS
         getMarkerPosition(e.latLng.lat(), e.latLng.lng());
       }
     });
+        parkImgElement.attr("src", info.images[0].url);
+
+        parkNameElement.text(info.fullName);
+        parkInfoElement.text(info.description);
+
+        currentPark["name"] = info.fullName;
+        currentPark["img"] = info.images[0].url;
+        currentPark["info"] = info.description;
+      });
+
+      parkFee.text(
+        "Cost: $" + Math.round(info.entranceFees[0].cost) //+
+        // " ( " + info.entranceFees[0].description + " )"
+      );
+      parkPage.attr("href", info.url);
+      console.log(info.fullName);
+      // currentPark.name =
+    });
+
+    // Getting birds info:
+    // var birdKey = "cgimsp2416fi";
+    // var birdUrl = `https://api.ebird.org/v2/data/obs/geo/recent?&api_key=${birdKey}&lat=61&lng=-142`;
+
+    // $.ajax({
+    //   url: birdUrl,
+    //   method: "GET",
+    // }).then(function (response) {
+    //   console.log(response);
+    //change the HTML:
+    // });
+
+    getCoordinates(e);
+    getMarkerPosition(e.latLng.lat(), e.latLng.lng());
+
   });
 }
+
+$("#fav-button").on("click", function () {
+  alert("clicked fav button");
+  //workaround for reference issue
+  currentParkArray.push(JSON.parse(JSON.stringify(currentPark)));
+  var currentParkArrayJSON = JSON.stringify(currentParkArray);
+  localStorage.setItem("currentPark-json", currentParkArrayJSON);
+});
+
+//clicked plus button
+//push currentPark into an Array of favorites
+//setItem favorites to local storage
+
+//get array of objects from local storage
+//for each loop of objects to dynamically create cards
+// });
