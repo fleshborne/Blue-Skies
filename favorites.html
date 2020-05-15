@@ -87,7 +87,14 @@
 
 var favorites = []
 
-var mainDiv = $("<div>");
+
+
+var parkObjectArray = JSON.parse(localStorage.getItem("currentPark-json"));
+
+parkObjectArray.forEach(function (object){
+  console.log(object.name);
+
+  var mainDiv = $("<div>");
   mainDiv.addClass("col s12 m7");
 var mainCard = $("<div>");
   mainCard.addClass("card horizontal");
@@ -95,31 +102,40 @@ var imageDiv = $("<div>");
   imageDiv.addClass("card-image");
 var image = $("<img>")
   image.attr("id", "parkImg-fav");
+  image.attr("src", object.img);
 var rightMainDiv = $("<div>");
   rightMainDiv.addClass("card-stacked");
 var rightMainDivContent = $("<div>");
   rightMainDivContent.addClass("card-content");
 var nameHeader = $("<h5>");
   nameHeader.attr("id", "park-name-fav");
+  nameHeader.text(object.name);
+var parkCost = $("<p>");
+  parkCost.attr("id", "park-fee");
+  parkCost.text(object.cost);
 var pDetails = $("<p>");
   pDetails.attr("id", "park-details-fav");
+  pDetails.text(object.info);
 
-  rightMainDivContent.append(nameHeader, pDetails);
+  rightMainDivContent.append(nameHeader, parkCost, pDetails);
   rightMainDiv.append(rightMainDivContent);
   imageDiv.append(image);
   mainCard.append(imageDiv, rightMainDiv);
   mainDiv.append(mainCard);
   $(".container").append(mainDiv);
 
+});
+// image.attr("src", parkObject.img);
+// nameHeader.text(object.name);
+// pDetails.text(object.info);
 
-var parkObject = JSON.parse(localStorage.getItem("currentPark-json"));
-image.attr("src", parkObject.img);
-nameHeader.text(parkObject.name);
-pDetails.text(parkObject.info);
+// console.log(parkObject.img);
 
-console.log(parkObject.img);
+//pull the array from local storage
+//loop over array and for each object,
+//dynamically create the card 
 
-
+//if there isa  duplicate, do not create card
 
 </script>
 
