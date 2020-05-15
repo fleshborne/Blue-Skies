@@ -522,6 +522,102 @@ var currentPark = {
 
 //HTML ELEMENTS:
 // Cited : https://developers.google.com/maps/documentation/javascript/tutorial
+// function initMap() {
+//   var usa = { lat: 40.045835, lng: -96.428127 };
+//   var map = new google.maps.Map(document.getElementById("map"), {
+//     center: usa,
+//     zoom: 4,
+//   });
+//   allParks.forEach(function (park) {
+//     var marker = new google.maps.Marker({
+//       position: {
+//         lat: park.lat,
+//         lng: park.lng,
+//       },
+//       map: map,
+//       code: park.code,
+//       title: park.name,
+//     });
+
+//     marker.addListener("click", function (e) {
+//       console.log(marker.title);
+//       //****MISSING PARKS*****//
+//       //Gateway Arch
+//       if (marker.title === "Gateway Arch") {
+//         bgImgElement.attr("src", "Assets/Images/GatewayArch/bckgr.jpg");
+//         parkInfoElement.text(
+//           "Gateway Arch National Park, formerly known as the Jefferson National Expansion Memorial until 2018, is an American national park located in St. Louis, Missouri, near the starting point of the Lewis and Clark Expedition. The Gateway Arch and its immediate surroundings were initially designated as a national memorial by executive order on December 21, 1935, and redesignated as a national park in 2018."
+//         );
+//         parkNameElement.text("Gateway Arch");
+//         parkFee.text("Cost: $3");
+//         parkPage.attr("href", "https://www.nps.gov/jeff/index.htm");
+//         parkImgElement.attr("src", "Assets/Images/GatewayArch/01.jpg");
+
+//         getMarkerPosition(e.latLng.lat(), e.latLng.lng());
+//         //American Samoa
+//       } else if (marker.title === "American Samoa") {
+//         bgImgElement.attr("src", "Assets/Images/AmericanSamoa/bckgr.jpg");
+//         parkInfoElement.text(
+//           "The National Park of American Samoa is a national park in the United States territory of American Samoa, distributed across three islands: Tutuila, Ofu, and Ta‘ū. The park preserves and protects coral reefs, tropical rainforests, fruit bats, and the Samoan culture. Popular activities include hiking and snorkeling. Of the park's 13,500 acres (5,500 ha), 9,000 acres (3,600 ha) is land and 4,500 acres (1,800 ha) is coral reefs and ocean.The park is the only American National Park Service system unit south of the equator."
+//         );
+//         parkNameElement.text("American Samoa");
+//         parkFee.text("Cost: $0");
+//         parkPage.attr("href", "https://www.nps.gov/npsa/index.htm");
+//         parkImgElement.attr("src", "Assets/Images/AmericanSamoa/01.jpg");
+//         getMarkerPosition(e.latLng.lat(), e.latLng.lng());
+//       } else {
+//         // Getting Parks Info:
+//         var key = "yPBjpfToto0wPE3XwW0c4EE6fJfWiaDlziYX82jM";
+//         var url = `https://developer.nps.gov/api/v1/parks?parkCode=${marker.code}&api_key=${key}`;
+
+//         $.ajax({
+//           url: url,
+//           method: "GET",
+//         }).then(function (response) {
+//           console.log(e);
+//           var info = response.data[0];
+//           //change the HTML:
+//           // parkImgOne.attr("src", info.images[0].url);
+//           // parkImgTwo.attr("src", info.images[2].url);
+//           // parkImgThree.attr("src", info.images[3].url);
+
+//           // enlarge img on click
+//           $(document).ready(function () {
+//             $(".materialboxed").materialbox();
+//           });
+//           parkImgElement.attr("src", info.images[0].url);
+
+//           parkNameElement.text(info.fullName);
+//           parkInfoElement.text(info.description);
+//           parkFee.text("Cost: $" + Math.round(info.entranceFees[0].cost));
+//           parkPage.attr("href", info.url);
+//           bgImgElement.attr("src", info.images[1].url);
+//         });
+
+//         // getCoordinates(e);  USE IF YOU NEED ACCESS THE SCRIPT.JS
+//         getMarkerPosition(e.latLng.lat(), e.latLng.lng());
+//       }
+//     });
+//     parkImgElement.attr("src", info.images[0].url);
+
+//     parkNameElement.text(info.fullName);
+//     parkInfoElement.text(info.description);
+
+//     currentPark["name"] = info.fullName;
+//     currentPark["img"] = info.images[0].url;
+//     currentPark["info"] = info.description;
+//   });
+
+//   parkFee.text(
+//     "Cost: $" + Math.round(info.entranceFees[0].cost) //+
+//     // " ( " + info.entranceFees[0].description + " )"
+//   );
+//   parkPage.attr("href", info.url);
+//   console.log(info.fullName);
+//   // currentPark.name =
+
+//   getMarkerPosition(e.latLng.lat(), e.latLng.lng());
+// }
 function initMap() {
   var usa = { lat: 40.045835, lng: -96.428127 };
   var map = new google.maps.Map(document.getElementById("map"), {
@@ -538,24 +634,26 @@ function initMap() {
       code: park.code,
       title: park.name,
     });
-
     marker.addListener("click", function (e) {
       console.log(marker.title);
-                                                //****MISSING PARKS*****//
-                                                //Gateway Arch
+      //****MISSING PARKS*****//
+      //Gateway Arch
       if (marker.title === "Gateway Arch") {
         bgImgElement.attr("src", "Assets/Images/GatewayArch/bckgr.jpg");
-        parkInfoElement.text("Gateway Arch National Park, formerly known as the Jefferson National Expansion Memorial until 2018, is an American national park located in St. Louis, Missouri, near the starting point of the Lewis and Clark Expedition. The Gateway Arch and its immediate surroundings were initially designated as a national memorial by executive order on December 21, 1935, and redesignated as a national park in 2018.");
+        parkInfoElement.text(
+          "Gateway Arch National Park, formerly known as the Jefferson National Expansion Memorial until 2018, is an American national park located in St. Louis, Missouri, near the starting point of the Lewis and Clark Expedition. The Gateway Arch and its immediate surroundings were initially designated as a national memorial by executive order on December 21, 1935, and redesignated as a national park in 2018."
+        );
         parkNameElement.text("Gateway Arch");
         parkFee.text("Cost: $3");
         parkPage.attr("href", "https://www.nps.gov/jeff/index.htm");
         parkImgElement.attr("src", "Assets/Images/GatewayArch/01.jpg");
-
         getMarkerPosition(e.latLng.lat(), e.latLng.lng());
-                                                //American Samoa
+        //American Samoa
       } else if (marker.title === "American Samoa") {
         bgImgElement.attr("src", "Assets/Images/AmericanSamoa/bckgr.jpg");
-        parkInfoElement.text("The National Park of American Samoa is a national park in the United States territory of American Samoa, distributed across three islands: Tutuila, Ofu, and Ta‘ū. The park preserves and protects coral reefs, tropical rainforests, fruit bats, and the Samoan culture. Popular activities include hiking and snorkeling. Of the park's 13,500 acres (5,500 ha), 9,000 acres (3,600 ha) is land and 4,500 acres (1,800 ha) is coral reefs and ocean.The park is the only American National Park Service system unit south of the equator.");
+        parkInfoElement.text(
+          "The National Park of American Samoa is a national park in the United States territory of American Samoa, distributed across three islands: Tutuila, Ofu, and Ta'ū. The park preserves and protects coral reefs, tropical rainforests, fruit bats, and the Samoan culture. Popular activities include hiking and snorkeling. Of the park's 13,500 acres (5,500 ha), 9,000 acres (3,600 ha) is land and 4,500 acres (1,800 ha) is coral reefs and ocean.The park is the only American National Park Service system unit south of the equator."
+        );
         parkNameElement.text("American Samoa");
         parkFee.text("Cost: $0");
         parkPage.attr("href", "https://www.nps.gov/npsa/index.htm");
@@ -565,7 +663,6 @@ function initMap() {
         // Getting Parks Info:
         var key = "yPBjpfToto0wPE3XwW0c4EE6fJfWiaDlziYX82jM";
         var url = `https://developer.nps.gov/api/v1/parks?parkCode=${marker.code}&api_key=${key}`;
-
         $.ajax({
           url: url,
           method: "GET",
@@ -576,13 +673,11 @@ function initMap() {
           // parkImgOne.attr("src", info.images[0].url);
           // parkImgTwo.attr("src", info.images[2].url);
           // parkImgThree.attr("src", info.images[3].url);
-
           // enlarge img on click
           $(document).ready(function () {
             $(".materialboxed").materialbox();
           });
           parkImgElement.attr("src", info.images[0].url);
-
           parkNameElement.text(info.fullName);
           parkInfoElement.text(info.description);
           parkFee.text("Cost: $" + Math.round(info.entranceFees[0].cost));
@@ -590,47 +685,12 @@ function initMap() {
           bgImgElement.attr("src", info.images[1].url);
         });
 
-        // getCoordinates(e);  USE IF YOU NEED ACCESS THE SCRIPT.JS
         getMarkerPosition(e.latLng.lat(), e.latLng.lng());
       }
     });
-        parkImgElement.attr("src", info.images[0].url);
-
-        parkNameElement.text(info.fullName);
-        parkInfoElement.text(info.description);
-
-        currentPark["name"] = info.fullName;
-        currentPark["img"] = info.images[0].url;
-        currentPark["info"] = info.description;
-      });
-
-      parkFee.text(
-        "Cost: $" + Math.round(info.entranceFees[0].cost) //+
-        // " ( " + info.entranceFees[0].description + " )"
-      );
-      parkPage.attr("href", info.url);
-      console.log(info.fullName);
-      // currentPark.name =
-    });
-
-    // Getting birds info:
-    // var birdKey = "cgimsp2416fi";
-    // var birdUrl = `https://api.ebird.org/v2/data/obs/geo/recent?&api_key=${birdKey}&lat=61&lng=-142`;
-
-    // $.ajax({
-    //   url: birdUrl,
-    //   method: "GET",
-    // }).then(function (response) {
-    //   console.log(response);
-    //change the HTML:
-    // });
-
-    getCoordinates(e);
-    getMarkerPosition(e.latLng.lat(), e.latLng.lng());
-
   });
+  // getMarkerPosition(e.latLng.lat(), e.latLng.lng());
 }
-
 $("#fav-button").on("click", function () {
   alert("clicked fav button");
   //workaround for reference issue
@@ -638,11 +698,9 @@ $("#fav-button").on("click", function () {
   var currentParkArrayJSON = JSON.stringify(currentParkArray);
   localStorage.setItem("currentPark-json", currentParkArrayJSON);
 });
-
 //clicked plus button
 //push currentPark into an Array of favorites
 //setItem favorites to local storage
-
 //get array of objects from local storage
 //for each loop of objects to dynamically create cards
 // });
