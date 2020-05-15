@@ -40,8 +40,8 @@ body {
 .component__weather-box {
   margin: 30px auto;
   width: 340px;
-  border: 1px solid black
-  border-radius; 10px;
+  border: 1px solid black;
+  border-radius: 10px;
   overflow: hidden;
   box-shadow: 2px 5px 20px 1px #444;
 }
