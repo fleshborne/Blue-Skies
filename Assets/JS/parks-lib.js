@@ -1,3 +1,4 @@
+// Cited : https://docs.google.com/spreadsheets/d/1TgHzVPF743cwFp124RMur3qepOWCQrR-C_HR4-3b9uk/edit?usp=sharing
 var acadia = {
   lat: 44.35,
   lng: -68.21,
@@ -515,6 +516,8 @@ var currentPark = {
   img: "",
 };
 
+//HTML ELEMENTS:
+// Cited : https://developers.google.com/maps/documentation/javascript/tutorial
 function initMap() {
   var usa = { lat: 40.045835, lng: -96.428127 };
   var map = new google.maps.Map(document.getElementById("map"), {
