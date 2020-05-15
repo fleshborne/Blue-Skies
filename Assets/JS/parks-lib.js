@@ -673,11 +673,6 @@ function initMap() {
         }).then(function (response) {
           console.log(e);
           var info = response.data[0];
-          //change the HTML:
-          // parkImgOne.attr("src", info.images[0].url);
-          // parkImgTwo.attr("src", info.images[2].url);
-          // parkImgThree.attr("src", info.images[3].url);
-          // enlarge img on click
           $(document).ready(function () {
             $(".materialboxed").materialbox();
           });
