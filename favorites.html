@@ -37,12 +37,12 @@
           ><img src="Assets/Images/Logo-blue.png" width="85" height="65"
         /></a>
         <ul class="right hide-on-med-and-down">
-          <li></li>  
-          <!--Model pop up with form once Share list clicked?
-        OR
-        we could have form card on the side for Action: share list-->       
+          <li><a href="favorites.html" id="clear">Clear Favorites</a>
+           </li>  
+           
            <li>
-            <div class="fb-share-button" data-href="https://fleshborne.github.io/Project1/favorites.html" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffleshborne.github.io%2FProject1%2Ffavorites.html&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>          </li>
+            <div class="fb-share-button" data-href="https://fleshborne.github.io/Project1/favorites.html" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffleshborne.github.io%2FProject1%2Ffavorites.html&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+          </li>
         </ul>
       </div>
     </nav>
@@ -92,6 +92,7 @@
 
 
 
+
 var parkObjectArray = JSON.parse(localStorage.getItem("currentPark-json"));
 
 parkObjectArray.forEach(function (object){
@@ -128,6 +129,13 @@ var pDetails = $("<p>");
   $(".container").append(mainDiv);
 
 });
+
+
+$("#clear").on("click", function(){
+  localStorage.clear();
+
+});
+
 // image.attr("src", parkObject.img);
 // nameHeader.text(object.name);
 // pDetails.text(object.info);
