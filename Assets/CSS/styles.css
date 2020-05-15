@@ -23,7 +23,7 @@ body {
 
 .p1 {
   margin: auto;
-  background-color: rgb(49, 58, 141);
+  background-color: rgb(6, 72, 133);;
   color: #fff;
   font-size: 18px;
   font-weight: 400;
@@ -41,7 +41,7 @@ body {
   margin: 30px auto;
   width: 340px;
   border: 1px solid black
-  border-radius: 10px;
+  border-radius; 10px;
   overflow: hidden;
   box-shadow: 2px 5px 20px 1px #444;
 }
