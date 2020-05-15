@@ -26,9 +26,17 @@ Share the results?
 
 # Technologies Used
 
+<br>Materialize CSS<br>
+<br>Jquery<br>
+<br>NPS API<br>
+<br>Google Maps API<br>
+<br>Open Weather Map API<br>
+<br>[Code Pen](https://jsfiddle.net/sceendy/nea4z7ff/)<br>
+<br>[Google Init Function](https://developers.google.com/maps/documentation/javascript/tutorial)<br>
+
 # Visuals
 
-![Placeholder Visual](https://gyazo.com/e8357ee3148f8a803cbc2952f020324a.png)
+![Demo gif](Assets\Images\2020-05-14_20-20-19.gif)
 
 # Contributors
 

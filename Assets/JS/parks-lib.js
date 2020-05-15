@@ -1,3 +1,4 @@
+// Cited : https://docs.google.com/spreadsheets/d/1TgHzVPF743cwFp124RMur3qepOWCQrR-C_HR4-3b9uk/edit?usp=sharing
 var acadia = {
   lat: 44.35,
   lng: -68.21,
@@ -498,10 +499,10 @@ var allParks = [
 ];
 
 var allMyFavParks = [];
-$('.carousel.carousel-slider').carousel({
-  fullWidth: true
+$(".carousel.carousel-slider").carousel({
+  fullWidth: true,
 });
-      
+
 // var parkImgOne = $("#img-one");
 // var parkImgTwo = $("#img-two");
 // var parkImgThree = $("#img-three");
@@ -518,7 +519,7 @@ var currentPark = {
 };
 
 //HTML ELEMENTS:
-
+// Cited : https://developers.google.com/maps/documentation/javascript/tutorial
 function initMap() {
   var usa = { lat: 40.045835, lng: -96.428127 };
   var map = new google.maps.Map(document.getElementById("map"), {
@@ -556,11 +557,11 @@ function initMap() {
         // parkImgTwo.attr("src", info.images[2].url);
         // parkImgThree.attr("src", info.images[3].url);
         // enlarge img on click
-        $(document).ready(function(){
-          $('.materialboxed').materialbox();
+        $(document).ready(function () {
+          $(".materialboxed").materialbox();
         });
         parkImgElement.attr("src", info.images[0].url);
-        
+
         parkNameElement.text(info.fullName);
         parkInfoElement.text(info.description);
         parkFee.text(
