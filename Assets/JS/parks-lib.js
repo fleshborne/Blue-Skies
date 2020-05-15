@@ -498,8 +498,6 @@ var allParks = [
   zion,
 ];
 
-var allMyFavParks = [];
-
 // var parkImgOne = $("#img-one");
 // var parkImgTwo = $("#img-two");
 // var parkImgThree = $("#img-three");
@@ -516,7 +514,7 @@ var currentParkArray = [];
 
 var currentPark = {
   name: "",
-  code: "",
+  info: "",
   img: "",
 };
 
@@ -683,6 +681,10 @@ function initMap() {
           parkFee.text("Cost: $" + Math.round(info.entranceFees[0].cost));
           parkPage.attr("href", info.url);
           bgImgElement.attr("src", info.images[1].url);
+
+          currentPark["name"] = info.fullName;
+          currentPark["img"] = info.images[0].url;
+          currentPark["info"] = info.description;
         });
 
         getMarkerPosition(e.latLng.lat(), e.latLng.lng());
@@ -691,12 +693,13 @@ function initMap() {
   });
 }
 $("#fav-button").on("click", function () {
-  alert("clicked fav button");
+  // console.log(currentPark);
   //workaround for reference issue
   currentParkArray.push(JSON.parse(JSON.stringify(currentPark)));
   var currentParkArrayJSON = JSON.stringify(currentParkArray);
   localStorage.setItem("currentPark-json", currentParkArrayJSON);
 });
+
 //clicked plus button
 //push currentPark into an Array of favorites
 //setItem favorites to local storage
