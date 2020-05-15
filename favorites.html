@@ -39,10 +39,8 @@
 
         <ul class="right">
           <li></li>  
-          <!--Model pop up with form once Share list clicked?
-        OR
-        we could have form card on the side for Action: share list-->       
-        <ul class="right hide-on-med-and-down">
+         
+        <ul class="right">
           <li><a href="favorites.html" id="clear">Clear Favorites</a>
            </li>  
            
@@ -55,34 +53,6 @@
     </nav>
 
       <div class="container">
-      <!-- <div class="col s12 m7">
-              <div class="col s12 m7">
-        <div class="card horizontal">
-          <div class="card-image">
-            <img
-              src="https://www.nationalparkreservations.com/wp-content/uploads/2013/11/bigstock-Picturesque-Acadia-National-Pa-49009745-300x192.jpg"
-            id="parkImg-fav"/>
-          </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <h5 id="park-name-fav">Acadia National Park</h5>
-              <p id="park-details-fav">
-                Acadia National Park is a 47,000-acre Atlantic coast recreation
-                area primarily on Maine's Mount Desert Island. Its landscape is
-                marked by woodland, rocky beaches and glacier-scoured granite
-                peaks such as Cadillac Mountain, the highest point on the United
-                States’ East Coast. Among the wildlife are moose, bear, whales
-                and seabirds. The bayside town of Bar Harbor, with restaurants
-                and shops, is a popular gateway.
-              </p>
-            </div>
-            <div class="card-action">
-              <a href="#">Visit Park Website</a>
-              <a href="#">Get Directions</a>
-
-            </div>
-          </div>
-        </div> -->
       </div>
 
     </div>
@@ -134,7 +104,17 @@ var pDetails = $("<p>");
   mainCard.append(imageDiv, rightMainDiv);
   mainDiv.append(mainCard);
   $(".container").append(mainDiv);
+  function myFunction(x) {
+  if (x.matches) { // If media query matches
+    mainCard.removeClass("horizontal");
+  } else {
+    mainCard.addClass("horizontal");
+  }
+}
 
+var x = window.matchMedia("(max-width: 992px)")
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
 });
 
 
@@ -143,17 +123,8 @@ $("#clear").on("click", function(){
 
 });
 
-// image.attr("src", parkObject.img);
-// nameHeader.text(object.name);
-// pDetails.text(object.info);
 
-// console.log(parkObject.img);
 
-//pull the array from local storage
-//loop over array and for each object,
-//dynamically create the card 
-
-//if there isa  duplicate, do not create card
 
 </script>
 
