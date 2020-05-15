@@ -514,6 +514,7 @@ var currentParkArray = [];
 
 var currentPark = {
   name: "",
+  cost: "",
   info: "",
   img: "",
 };
@@ -685,6 +686,8 @@ function initMap() {
           currentPark["name"] = info.fullName;
           currentPark["img"] = info.images[0].url;
           currentPark["info"] = info.description;
+          currentPark["cost"] =
+            "Cost: $" + Math.round(info.entranceFees[0].cost);
         });
 
         getMarkerPosition(e.latLng.lat(), e.latLng.lng());
