@@ -24,16 +24,16 @@
     />
     <link rel="stylesheet" href="Assets\CSS\styles.css" />
   </head>
-
   <body>
+    <img id="bgImg" src="Assets/Images/mapGrey.png" />
     <header class="container">
-      <img src="Assets/Images/hdrImg.jpg" width="100%" height="300" />
+      <img src="Assets/Images/header2.png" width="100%" height="250%" />
     </header>
     <!---Nav BAR with Favorites Tab We can add icons/logos etc-->
-    <!---<nav class="container">
-      <div class="nav-wrapper green">
+    <nav class="container">
+      <div class="nav-wrapper blue-grey">
         <a href="index.html" class="brand-logo"
-          ><img src="Assets/Images/blueskieslogo.png" width="65" height="auto"
+          ><img src="Assets/Images/Logo-blue.png" width="85" height="65"
         /></a>
         <ul class="right hide-on-med-and-down">
           <li></li>
@@ -44,7 +44,8 @@
           </li>
         </ul>
       </div>
-    </nav>--->
+    </nav>
+    --->
 
     <!--main section of website with maps on left and weather on right -->
     <div class="container">
@@ -75,6 +76,9 @@
         <div class="card horizontal">
           <div class="card-image">
             <img
+              id="parkImg"
+              class="materialboxed"
+              width="650"
               src="https://www.nationalparkreservations.com/wp-content/uploads/2013/11/bigstock-Picturesque-Acadia-National-Pa-49009745-300x192.jpg"
               id="parkImg"
             />
@@ -82,7 +86,7 @@
           <div class="card-stacked">
             <div class="card-content">
               <h5 id="park-name">Acadia National Park</h5>
-
+              <p id="park-fee"></p>
               <!--this button Action: adds to Favorite list on Favorites.html page-->
               <a
                 class="btn-floating halfway-fab waves-effect waves-light red"
@@ -101,7 +105,7 @@
             </div>
             <div class="card-action">
               <!--need IDs created if we want to have these pull from object info-->
-              <a href="#">Visit Park Website</a>
+              <a id="park-page" href="">Visit Park Website</a>
               <a href="#">Get Directions</a>
             </div>
           </div>
@@ -118,6 +122,10 @@
 
     <script src="Assets/JS/script.js"></script>
     <script src="Assets/JS/parks-lib.js"></script>
+
+    <script src="Assets/JS/weatherScript.js"></script>
+    <script src="Assets/JS/parks-lib.js"></script>
+
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZTHIIK47ROuZZ4h_93vyG9eXkXokut1s&callback=initMap"
       async

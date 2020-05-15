@@ -7,7 +7,7 @@ const CURRENT_TEMP = document.getElementsByClassName(
 const FORECAST = document.getElementsByClassName("component__forecast-box")[0];
 
 const appid = "e43f64ee98be9268f7a7f49e34aecfdf";
-
+//  Cited: https://codepen.io/sceendy/pen/zGmxZz?editors=1010
 // Use Fetch API to GET data from OpenWeather API
 function getWeatherData(position) {
   const headers = new Headers();
@@ -20,11 +20,6 @@ function getWeatherData(position) {
   }).then((data) => data.json());
 }
 
-/* TUTORIAL READERS:
- ** I am using an external resource for the icons and applying them
- ** here using a switch block; check the sidebar "Resources" to get
- ** the css if you want to use these icons
- */
 function applyIcon(icon) {
   let selectedIcon;
   switch (icon) {
@@ -69,12 +64,15 @@ function applyIcon(icon) {
   }
   return selectedIcon;
 }
-
+// cited from : https://jsfiddle.net/sceendy/nea4z7ff/
 // Use returned json from promise to render daily forecast
-renderData = (location, forecast) => {
+renderData = (park, forecast) => {
   // render city, current weather description and temp
+  var forecastEl = $(".component__forecast-box");
+  forecastEl.empty();
   const currentWeather = forecast[0].weather[0];
   const widgetHeader = `<h1>${location.name}</h1>`;
+  const widgetHeader = `<h1>${park.name}</h1>`;
   // console.log(forecast[0].temp.day);
   CURRENT_TEMP.innerHTML = `<i class="wi ${applyIcon(
     currentWeather.icon
@@ -98,11 +96,7 @@ renderData = (location, forecast) => {
     FORECAST.appendChild(dayBlock);
   });
 };
-
-// TUTORIAL reader: I moved the calling of the weather API url
-// to be able to get the current browser location
-// NOTE: check https://github.com/mdn/sprints/issues/1032#issuecomment-517447453 if you're having issues with geolocation
-
+// Cited : https://jsfiddle.net/sceendy/nea4z7ff/
 function getMarkerPosition(lat, lng) {
   console.log(lat, lng);
   if ("geolocation" in navigator) {
@@ -113,7 +107,7 @@ function getMarkerPosition(lat, lng) {
         getWeatherData(coordinates).then((weatherData) => {
           const city = weatherData.city;
           const dailyForecast = weatherData.list;
-          console.log(navigator);
+          // console.log(navigator);
           renderData(city, dailyForecast);
         });
       },

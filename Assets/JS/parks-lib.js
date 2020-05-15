@@ -1,4 +1,4 @@
-// $(document).ready(function () {
+// Cited : https://docs.google.com/spreadsheets/d/1TgHzVPF743cwFp124RMur3qepOWCQrR-C_HR4-3b9uk/edit?usp=sharing
 var acadia = {
   lat: 44.35,
   lng: -68.21,
@@ -498,15 +498,32 @@ var allParks = [
   zion,
 ];
 
+var allMyFavParks = [];
+$(".carousel.carousel-slider").carousel({
+  fullWidth: true,
+});
+
+// var parkImgOne = $("#img-one");
+// var parkImgTwo = $("#img-two");
+// var parkImgThree = $("#img-three");
 var parkImgElement = $("#parkImg");
 var parkNameElement = $("#park-name");
 var parkInfoElement = $("#park-details");
+var parkFee = $("#park-fee");
+var parkPage = $("#park-page");
 
-var currentPark = {};
 var currentParkArray = [];
 
 //HTML ELEMENTS:
 
+var currentPark = {
+  name: "",
+  code: "",
+  img: "",
+};
+
+//HTML ELEMENTS:
+// Cited : https://developers.google.com/maps/documentation/javascript/tutorial
 function initMap() {
   var usa = { lat: 40.045835, lng: -96.428127 };
   var map = new google.maps.Map(document.getElementById("map"), {
@@ -537,10 +554,18 @@ function initMap() {
         url: url,
         method: "GET",
       }).then(function (response) {
-        var info = response.data[0];
         console.log(response);
+        var info = response.data[0];
         //change the HTML:
+        // parkImgOne.attr("src", info.images[0].url);
+        // parkImgTwo.attr("src", info.images[2].url);
+        // parkImgThree.attr("src", info.images[3].url);
+        // enlarge img on click
+        $(document).ready(function () {
+          $(".materialboxed").materialbox();
+        });
         parkImgElement.attr("src", info.images[0].url);
+
         parkNameElement.text(info.fullName);
         parkInfoElement.text(info.description);
 
@@ -549,9 +574,29 @@ function initMap() {
         currentPark["info"] = info.description;
       });
 
-      getCoordinates(e);
-      getMarkerPosition(e.latLng.lat(), e.latLng.lng());
+      parkFee.text(
+        "Cost: $" + Math.round(info.entranceFees[0].cost) //+
+        // " ( " + info.entranceFees[0].description + " )"
+      );
+      parkPage.attr("href", info.url);
+      console.log(info.fullName);
+      // currentPark.name =
     });
+
+    // Getting birds info:
+    // var birdKey = "cgimsp2416fi";
+    // var birdUrl = `https://api.ebird.org/v2/data/obs/geo/recent?&api_key=${birdKey}&lat=61&lng=-142`;
+
+    // $.ajax({
+    //   url: birdUrl,
+    //   method: "GET",
+    // }).then(function (response) {
+    //   console.log(response);
+    //change the HTML:
+    // });
+
+    getCoordinates(e);
+    getMarkerPosition(e.latLng.lat(), e.latLng.lng());
   });
 }
 

@@ -1,11 +1,12 @@
-# Project1
+# Project Blue Skies
 
-(name to be determined)
 Like to camp?
 Ever wanted to find a new hiking hotspot?
 Maybe a good place to fish?
 Even just the weather for a nice walk with the dog!
 Search with us
+
+[Github Repo](https://fleshborne.github.io/Project1/)
 
 # Usage
 
@@ -25,9 +26,17 @@ Share the results?
 
 # Technologies Used
 
+<br>Materialize CSS<br>
+<br>Jquery<br>
+<br>NPS API<br>
+<br>Google Maps API<br>
+<br>Open Weather Map API<br>
+<br>[Code Pen](https://jsfiddle.net/sceendy/nea4z7ff/)<br>
+<br>[Google Init Function](https://developers.google.com/maps/documentation/javascript/tutorial)<br>
+
 # Visuals
 
-![Placeholder Visual](https://gyazo.com/e8357ee3148f8a803cbc2952f020324a.png)
+![Demo gif](Assets\Images\2020-05-14_20-20-19.gif)
 
 # Contributors
 
