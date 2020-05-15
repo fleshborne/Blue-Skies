@@ -596,6 +596,7 @@ function initMap() {
     // });
 
     getCoordinates(e);
+
     getMarkerPosition(e.latLng.lat(), e.latLng.lng());
   });
 }
