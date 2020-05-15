@@ -696,16 +696,8 @@ function initMap() {
   });
 }
 $("#fav-button").on("click", function () {
-  // console.log(currentPark);
   //workaround for reference issue
   currentParkArray.push(JSON.parse(JSON.stringify(currentPark)));
   var currentParkArrayJSON = JSON.stringify(currentParkArray);
   localStorage.setItem("currentPark-json", currentParkArrayJSON);
 });
-
-//clicked plus button
-//push currentPark into an Array of favorites
-//setItem favorites to local storage
-//get array of objects from local storage
-//for each loop of objects to dynamically create cards
-// });

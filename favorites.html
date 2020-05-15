@@ -18,10 +18,18 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:url" content="https://fleshborne.github.io/Project1/favorites.html" />
+    <meta property="og:type"               content="article" />
+<meta property="og:title"              content="Blue Skies" />
+<meta property="og:description"        content="My Favorite Parks" />
+<meta property="og:image"              content="Assets/Images/header2.png" />
   </head>
 
   <body>
-    <img id="bgImg" src="Assets/Images/mapGrey.png" />
+    <div id="fb-root"></div>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0"></script>    <img id="bgImg" src="Assets/Images/mapGrey.png" />
         <!---Nav BAR with Favorites Tab-->
     <nav>
       <div class="nav-wrapper blue-grey">
@@ -34,10 +42,7 @@
         OR
         we could have form card on the side for Action: share list-->       
            <li>
-            <a href="#"
-              ><i class="material-icons right">email</i>Share List</a
-            >
-          </li>
+            <div class="fb-share-button" data-href="https://fleshborne.github.io/Project1/favorites.html" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffleshborne.github.io%2FProject1%2Ffavorites.html&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>          </li>
         </ul>
       </div>
     </nav>
