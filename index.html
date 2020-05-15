@@ -10,13 +10,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <!--Import materialize.css-->
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="css/materialize.min.css"
-      media="screen,projection"
-    />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
@@ -50,14 +44,16 @@
         </ul>
       </div>
     </nav>
+    --->
 
     <!--main section of website with maps on left and weather on right -->
     <div class="container">
       <div class="row">
         <div class="col s8">
           <div class="card">
-            <p class="p1">
-              Explore the map below for park and weather info.
+            <p>
+              Choose a National Park from the map below. Clicking on a park's
+              marker will display that park's information and weather.
             </p>
             <div id="map"></div>
           </div>
@@ -80,13 +76,15 @@
           <div class="card-image">
             <img
               id="parkImg"
+              class="materialboxed"
+              width="650"
               src="https://www.nationalparkreservations.com/wp-content/uploads/2013/11/bigstock-Picturesque-Acadia-National-Pa-49009745-300x192.jpg"
             />
           </div>
           <div class="card-stacked">
             <div class="card-content">
               <h5 id="park-name">Acadia National Park</h5>
-
+              <p id="park-fee"></p>
               <!--this button Action: adds to Favorite list on Favorites.html page-->
               <a class="btn-floating halfway-fab waves-effect waves-light red"
                 ><i class="material-icons">add</i></a
@@ -103,7 +101,7 @@
             </div>
             <div class="card-action">
               <!--need IDs created if we want to have these pull from object info-->
-              <a href="#">Visit Park Website</a>
+              <a id="park-page" href="">Visit Park Website</a>
               <a href="#">Get Directions</a>
             </div>
           </div>
@@ -116,7 +114,7 @@
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="Assets/JS/script.js"></script>
     <script src="Assets/JS/parks-lib.js"></script>
