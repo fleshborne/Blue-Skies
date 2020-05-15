@@ -585,9 +585,26 @@ function initMap() {
           parkPage.attr("href", info.url);
           bgImgElement.attr("src", info.images[1].url);
         });
-        // getCoordinates(e);  USE IF YOU NEED ACCESS THE SCRIPT.JS
         getMarkerPosition(e.latLng.lat(), e.latLng.lng());
       }
     });
   });
 }
+
+$("#fav-button").on("click", function () {
+  alert("clicked fav button");
+  //workaround for reference issue
+  currentParkArray.push(JSON.parse(JSON.stringify(currentPark)));
+  var currentParkArrayJSON = JSON.stringify(currentParkArray);
+  localStorage.setItem("currentPark-json", currentParkArrayJSON);
+});
+//clicked plus button
+//push currentPark into an Array of favorites
+//setItem favorites to local storage
+//get array of objects from local storage
+//for each loop of objects to dynamically create cards
+// });
+
+
+
+
