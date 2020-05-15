@@ -8,7 +8,7 @@ var acadia = {
 var americanSamoa = {
   lat: -14.25,
   lng: -170.68,
-  code: "NO",
+  code: "AMSA",
   name: "American Samoa",
 };
 
@@ -498,10 +498,7 @@ var allParks = [
 ];
 
 var allMyFavParks = [];
-$('.carousel.carousel-slider').carousel({
-  fullWidth: true
-});
-      
+
 // var parkImgOne = $("#img-one");
 // var parkImgTwo = $("#img-two");
 // var parkImgThree = $("#img-three");
@@ -517,7 +514,6 @@ var currentPark = {
   code: "",
   img: "",
 };
-
 
 function initMap() {
   var usa = { lat: 40.045835, lng: -96.428127 };
@@ -535,44 +531,60 @@ function initMap() {
       code: park.code,
       title: park.name,
     });
-    
+
     marker.addListener("click", function (e) {
-     
+      console.log(marker.title);
+                                                //****MISSING PARKS*****//
+                                                //Gateway Arch
+      if (marker.title === "Gateway Arch") {
+        bgImgElement.attr("src", "Assets/Images/GatewayArch/bckgr.jpg");
+        parkInfoElement.text("Gateway Arch National Park, formerly known as the Jefferson National Expansion Memorial until 2018, is an American national park located in St. Louis, Missouri, near the starting point of the Lewis and Clark Expedition. The Gateway Arch and its immediate surroundings were initially designated as a national memorial by executive order on December 21, 1935, and redesignated as a national park in 2018.");
+        parkNameElement.text("Gateway Arch");
+        parkFee.text("Cost: $3");
+        parkPage.attr("href", "https://www.nps.gov/jeff/index.htm");
+        parkImgElement.attr("src", "Assets/Images/GatewayArch/01.jpg");
 
-      // Getting Parks Info:
-      var key = "yPBjpfToto0wPE3XwW0c4EE6fJfWiaDlziYX82jM";
-      var url = `https://developer.nps.gov/api/v1/parks?parkCode=${marker.code}&api_key=${key}`;
+        getMarkerPosition(e.latLng.lat(), e.latLng.lng());
+                                                //American Samoa
+      } else if (marker.title === "American Samoa") {
+        bgImgElement.attr("src", "Assets/Images/AmericanSamoa/bckgr.jpg");
+        parkInfoElement.text("The National Park of American Samoa is a national park in the United States territory of American Samoa, distributed across three islands: Tutuila, Ofu, and Ta‘ū. The park preserves and protects coral reefs, tropical rainforests, fruit bats, and the Samoan culture. Popular activities include hiking and snorkeling. Of the park's 13,500 acres (5,500 ha), 9,000 acres (3,600 ha) is land and 4,500 acres (1,800 ha) is coral reefs and ocean.The park is the only American National Park Service system unit south of the equator.");
+        parkNameElement.text("American Samoa");
+        parkFee.text("Cost: $0");
+        parkPage.attr("href", "https://www.nps.gov/npsa/index.htm");
+        parkImgElement.attr("src", "Assets/Images/AmericanSamoa/01.jpg");
+        getMarkerPosition(e.latLng.lat(), e.latLng.lng());
+      } else {
+        // Getting Parks Info:
+        var key = "yPBjpfToto0wPE3XwW0c4EE6fJfWiaDlziYX82jM";
+        var url = `https://developer.nps.gov/api/v1/parks?parkCode=${marker.code}&api_key=${key}`;
 
-      $.ajax({
-        url: url,
-        method: "GET",
-      }).then(function (response) {
-        console.log(response);
-        var info = response.data[0];
-        //change the HTML:
-        // parkImgOne.attr("src", info.images[0].url);
-        // parkImgTwo.attr("src", info.images[2].url);
-        // parkImgThree.attr("src", info.images[3].url);
+        $.ajax({
+          url: url,
+          method: "GET",
+        }).then(function (response) {
+          console.log(e);
+          var info = response.data[0];
+          //change the HTML:
+          // parkImgOne.attr("src", info.images[0].url);
+          // parkImgTwo.attr("src", info.images[2].url);
+          // parkImgThree.attr("src", info.images[3].url);
 
-        // enlarge img on click
-        $(document).ready(function(){
-          $('.materialboxed').materialbox();
+          // enlarge img on click
+          $(document).ready(function () {
+            $(".materialboxed").materialbox();
+          });
+          parkImgElement.attr("src", info.images[0].url);
+
+          parkNameElement.text(info.fullName);
+          parkInfoElement.text(info.description);
+          parkFee.text("Cost: $" + Math.round(info.entranceFees[0].cost));
+          parkPage.attr("href", info.url);
+          bgImgElement.attr("src", info.images[1].url);
         });
-        parkImgElement.attr("src", info.images[0].url);
-        
-        parkNameElement.text(info.fullName);
-        parkInfoElement.text(info.description);
-        parkFee.text(
-          "Cost: $" + Math.round(info.entranceFees[0].cost));
-        parkPage.attr("href", info.url);
-        bgImgElement.attr("src", info.images[1].url);
-      });
-      getCoordinates(e);
-      getMarkerPosition(e.latLng.lat(), e.latLng.lng());
+        // getCoordinates(e);  USE IF YOU NEED ACCESS THE SCRIPT.JS
+        getMarkerPosition(e.latLng.lat(), e.latLng.lng());
+      }
     });
-    //adding hovering tooltip:
-    // marker.addListener("hover", function (e) {
-    //   M.Tooltip.init(e, position, "top");
-    // });
   });
 }
