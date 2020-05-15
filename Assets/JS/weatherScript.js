@@ -70,8 +70,6 @@ renderData = (location, forecast) => {
   forecastEl.empty();
   const currentWeather = forecast[0].weather[0];
   const widgetHeader = `<h1>${location.name}</h1>`;
-  // const widgetHeader = `<h1>${park.name}</h1>`;
-  // console.log(forecast[0].temp.day);
   CURRENT_TEMP.innerHTML = `<i class="wi ${applyIcon(
     currentWeather.icon
   )}"></i> ${Math.round(forecast[0].temp.day)} <i class="wi wi-degrees"></i>`;
