@@ -6,7 +6,7 @@ Maybe a good place to fish?
 Even just the weather for a nice walk with the dog!
 Search with us
 
-[Github Repo](https://fleshborne.github.io/Project1/)
+[Deployed App](https://fleshborne.github.io/Blue-Skies/)
 
 # Usage
 
@@ -42,7 +42,7 @@ Share the results?
 
 # Contributors
 
-Bryan Pero
-Hannah Perreault
-Luba Pecheneva
-Blake Thompson
+-[Bryan Pero](https://github.com/zosotherover)
+-[Hannah Perreault](https://github.com/hannahperreault)
+-[Luba Pecheneva](https://github.com/lp5786766)
+-[Blake Thompson](https://github.com/fleshborne)
